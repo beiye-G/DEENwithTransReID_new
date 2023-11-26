@@ -210,7 +210,7 @@ net = vit_base_patch16_224_TransReID(n_class, dataset)
 
 
 # 加载预训练模型的参数
-net.load_param('/mnt/hdd3/guohangyu/VIReID/DEENwithTransReID_new/DEENwithTransReID/model/vit_base.pth')
+net.load_param('/home/guohangyu/data/checkpoints/vit_base.pth')
 # net.load_param('/home/guohangyu/data/VIReID/DEENwithTransReID_new/DEENwithTransReID/model/vit_base_ics_cfs_lup.pth')
 net.to(device)
 
