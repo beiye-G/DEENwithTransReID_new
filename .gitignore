@@ -1,0 +1,5 @@
+*.t
+*.pth
+*.png
+*.jpg
+Datasets/
