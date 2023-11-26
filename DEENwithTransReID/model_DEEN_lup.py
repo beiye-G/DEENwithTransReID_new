@@ -41,13 +41,14 @@ class visible_module(nn.Module):
     def __init__(self, arch='resnet50'):
         super(visible_module, self).__init__()
 
-        model_v = resnet50(pretrained=True,
-                           last_conv_stride=1, last_conv_dilation=1)
-        
-        # # 将预训练的resnet50从imagenet换到LUPerson
-        # model_v = resnet50(pretrained=False,
+        # model_v = resnet50(pretrained=True,
         #                    last_conv_stride=1, last_conv_dilation=1)
-        # model_v.load_state_dict(torch.load('/home/guohangyu/data/checkpoints/lup_moco_r50.pth'), strict=True)
+        
+        # 将预训练的resnet50从imagenet换到LUPerson
+        model_v = resnet50(pretrained=False,
+                           last_conv_stride=1, last_conv_dilation=1)
+        model_v.load_state_dict(torch.load('/home/guohangyu/data/checkpoints/lup_moco_r50.pth'), strict=True)
+      
         # avg pooling to global pooling
         self.visible = model_v
 
@@ -63,13 +64,14 @@ class thermal_module(nn.Module):
     def __init__(self, arch='resnet50'):
         super(thermal_module, self).__init__()
 
-        model_t = resnet50(pretrained=True,
-                           last_conv_stride=1, last_conv_dilation=1)
+        # model_t = resnet50(pretrained=True,
+        #                    last_conv_stride=1, last_conv_dilation=1)
                 
         # 将预训练的resnet50从imagenet换到LUPerson
-        # model_t = resnet50(pretrained=False,
-        #                    last_conv_stride=1, last_conv_dilation=1)
-        # model_t.load_state_dict(torch.load('/home/guohangyu/data/checkpoints/lup_moco_r50.pth'), strict=True)
+        model_t = resnet50(pretrained=False,
+                           last_conv_stride=1, last_conv_dilation=1)
+        model_t.load_state_dict(torch.load('/home/guohangyu/data/checkpoints/lup_moco_r50.pth'), strict=True)
+        
         # avg pooling to global pooling
         self.thermal = model_t
 
@@ -88,10 +90,10 @@ class base_resnet(nn.Module):
         model_base = resnet50(pretrained=True,
                               last_conv_stride=1, last_conv_dilation=1)
         
-        # # 将预训练的resnet50从imagenet换到LUPerson
-        # model_base = resnet50(pretrained=False,
-        #                       last_conv_stride=1, last_conv_dilation=1)
-        # model_base.load_state_dict(torch.load('/home/guohangyu/data/checkpoints/lup_moco_r50.pth'), strict=True)
+        # 将预训练的resnet50从imagenet换到LUPerson
+        model_base = resnet50(pretrained=False,
+                              last_conv_stride=1, last_conv_dilation=1)
+        model_base.load_state_dict(torch.load('/home/guohangyu/data/checkpoints/lup_moco_r50.pth'), strict=True)
               
 
         # avg pooling to global pooling
