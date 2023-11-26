@@ -87,8 +87,8 @@ class base_resnet(nn.Module):
     def __init__(self, arch='resnet50'):
         super(base_resnet, self).__init__()
 
-        model_base = resnet50(pretrained=True,
-                              last_conv_stride=1, last_conv_dilation=1)
+        # model_base = resnet50(pretrained=True,
+        #                       last_conv_stride=1, last_conv_dilation=1)
         
         # 将预训练的resnet50从imagenet换到LUPerson
         model_base = resnet50(pretrained=False,
